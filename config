@@ -173,6 +173,9 @@ exec pasystray
 exec gnome-settings-daemon
 # over grive daemon
 #exec python2 /opt/thefanclub/overgrive/overgrive
+# switch between monitors
+bindsym $mod+p exec --no-startup-id ~/.config/i3/display.sh
+
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
