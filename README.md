@@ -4,5 +4,7 @@ This will explain what stems you need to have i3 setup theway you want and insta
 
 # install pasytray for volume control
 ```
-sudo apt install pasytray
+sudo apt install pasystray &&\
+sudo apt install gnome-tweak-tool &&\
+sudo apt install i3blocks &&\
 ```
