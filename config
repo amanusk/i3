@@ -165,7 +165,7 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle # mute M
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-
+exec --no-startup-id setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
 exec --no-startup-id nm-applet
 # volume control
 exec pasystray
