@@ -13,7 +13,7 @@ fi
 
 # Degect extenal monitor
 if [ `xrandr | grep VGA1 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="VGA13"
+	EXTERNAL_OUTPUT="VGA1"
 fi
 if [ `xrandr | grep DVI1 | grep -c ' connected '` -eq 1 ]; then
 	EXTERNAL_OUTPUT="DVI1"
