@@ -125,7 +125,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Opera developer"] $workspace2
+assign [class="Opera"] $workspace2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -189,7 +189,7 @@ bindsym $mod+p exec --no-startup-id $config/display.sh
 
 # execute dy default
 exec i3-sensible-terminal
-exec opera-developer
+exec opera
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
