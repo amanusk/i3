@@ -187,6 +187,9 @@ exec python2 /opt/thefanclub/overgrive/overgrive
 # switch between monitors
 bindsym $mod+p exec --no-startup-id $config/display.sh
 
+# Toggle external keyboard sensitivity
+bindsym $mod+m exec --no-startup-id $config/mouse.sh
+
 # execute dy default
 exec i3-sensible-terminal
 exec opera
@@ -217,9 +220,9 @@ bindsym Mod1+Shift+Tab workspace prev
 # finds out, if available)
 bar {
 		position top
-        status_command i3blocks -c $config/i3blocks.conf
         tray_output primary
 		font Ubnutu Mono Bold 12
+        status_command i3blocks -c $config/i3blocks.conf
 }
 
 # bindings for i3blocks
