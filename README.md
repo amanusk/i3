@@ -5,6 +5,7 @@ This will explain what stems you need to have i3 setup theway you want and insta
 ## required installations
 ```
 sudo apt install pasystray &&\
+sudo apt install pavucontrol &&\
 sudo apt install gnome-tweak-tool &&\
 sudo apt install i3blocks &&\
 sudo apt install ranger &&\

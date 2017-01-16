@@ -40,14 +40,18 @@ fi
 if [ $monitor_mode = "all" ]; then
         monitor_mode="EXTERNAL"
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
+        xinput set-prop 9 262 0.3
 elif [ $monitor_mode = "EXTERNAL" ]; then
         monitor_mode="INTERNAL"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
+        xinput set-prop 9 262 0.3
 elif [ $monitor_mode = "INTERNAL" ]; then
         monitor_mode="CLONES"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
+        xinput set-prop 9 262 0.3
 else
         monitor_mode="all"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --right-of $INTERNAL_OUTPUT
+        xinput set-prop 9 262 0.3
 fi
 echo "${monitor_mode}" > /tmp/monitor_mode.dat
