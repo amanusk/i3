@@ -109,6 +109,21 @@ set $ws1 "1:Terminal"
 set $ws2 "2:Opera"
 set $ws3 "3:Lyx"
 
+# rename current workspace
+bindsym $mod+Ctrl+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '"
+
+# switch to workspace
+#bindsym $mod+1 workspace number 1
+#bindsym $mod+2 workspace number 2
+#bindsym $mod+3 workspace number 3
+#bindsym $mod+4 workspace number 4
+#bindsym $mod+5 workspace number 5
+#bindsym $mod+6 workspace number 6
+#bindsym $mod+7 workspace number 7
+#bindsym $mod+8 workspace number 8
+#bindsym $mod+9 workspace number 9
+#bindsym $mod+0 workspace number 10
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -185,14 +200,15 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle # mute M
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
-exec --no-startup-id setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
+exec setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
 exec --no-startup-id nm-applet
 # volume control
 exec pasystray
 # Gnome settings
 exec gnome-settings-daemon
 # over grive daemon
-exec python2 /opt/thefanclub/overgrive/overgrive
+exec owncloud
+exec insync start
 # switch between monitors
 bindsym $mod+p exec --no-startup-id $config/display.sh
 

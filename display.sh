@@ -1,6 +1,6 @@
 #!/bin/bash
-EXTERNAL_OUTPUT="HDMI3"
-INTERNAL_OUTPUT="LVDS1"
+EXTERNAL_OUTPUT="HDMI-3"
+INTERNAL_OUTPUT="LVDS-1"
 
 # if we don't have a file, start at zero
 if [ ! -f "/tmp/monitor_mode.dat" ] ; then
@@ -12,46 +12,42 @@ else
 fi
 
 # Degect extenal monitor
-if [ `xrandr | grep VGA1 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="VGA1"
+if [ `xrandr | grep VGA-1 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="VGA-1"
 fi
-if [ `xrandr | grep DVI1 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="DVI1"
+if [ `xrandr | grep DVI-1 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="DVI-1"
 fi
-if [ `xrandr | grep HDMI1 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="HDMI1"
+if [ `xrandr | grep HDMI-1 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="HDMI-1"
 fi
-if [ `xrandr | grep HDMI2 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="HDMI2"
+if [ `xrandr | grep HDMI-2 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="HDMI-2"
 fi
-if [ `xrandr | grep HDMI3 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="HDMI3"
+if [ `xrandr | grep HDMI-3 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="HDMI-3"
 fi
 if [ `xrandr | grep DP1 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="DP1"
+	EXTERNAL_OUTPUT="DP-1"
 fi
-if [ `xrandr | grep DP2 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="DP2"
+if [ `xrandr | grep DP-2 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="DP-2"
 fi
-if [ `xrandr | grep DP3 | grep -c ' connected '` -eq 1 ]; then
-	EXTERNAL_OUTPUT="DP2"
+if [ `xrandr | grep DP-3 | grep -c ' connected '` -eq 1 ]; then
+	EXTERNAL_OUTPUT="DP-2"
 fi
 
 if [ $monitor_mode = "all" ]; then
         monitor_mode="EXTERNAL"
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
-        xinput set-prop 9 262 0.3
 elif [ $monitor_mode = "EXTERNAL" ]; then
         monitor_mode="INTERNAL"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
-        xinput set-prop 9 262 0.3
 elif [ $monitor_mode = "INTERNAL" ]; then
         monitor_mode="CLONES"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
-        xinput set-prop 9 262 0.3
 else
         monitor_mode="all"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --right-of $INTERNAL_OUTPUT
-        xinput set-prop 9 262 0.3
 fi
 echo "${monitor_mode}" > /tmp/monitor_mode.dat
