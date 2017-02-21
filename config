@@ -202,6 +202,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 
 exec setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 # volume control
 exec pasystray
 # Gnome settings
