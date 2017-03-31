@@ -203,18 +203,24 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 exec setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id nextcloud
 # volume control
 exec pasystray
 # Gnome settings
 exec gnome-settings-daemon
-# over grive daemon
-exec owncloud
+
+# nextcloud
+exec nextcloud
+
+# insync
 exec insync start
+
 # switch between monitors
 bindsym $mod+p exec --no-startup-id $config/display.sh
 
 # Toggle external keyboard sensitivity
 bindsym $mod+m exec --no-startup-id $config/mouse.sh
+bindsym $mod+w exec "setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle"
 
 # execute dy default
 exec i3-sensible-terminal
