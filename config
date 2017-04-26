@@ -210,13 +210,15 @@ exec pasystray
 exec gnome-settings-daemon
 
 # nextcloud
-exec nextcloud
+#exec nextcloud
 
 # insync
 exec insync start
 
 # switch between monitors
 bindsym $mod+p exec --no-startup-id $config/display.sh
+bindsym $mod+Shift+s exec $config/single-display.sh
+bindsym $mod+Shift+m exec $config/multi-display.sh
 
 # Toggle external keyboard sensitivity
 bindsym $mod+m exec --no-startup-id $config/mouse.sh
