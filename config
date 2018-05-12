@@ -34,7 +34,11 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec konsole
+bindsym $mod+Shift+n exec konsole --profile=dark
+bindsym $mod+Shift+d exec konsole --profile=light
 bindsym $mod+Shift+Return exec gnome-terminal
 
 # kill focused window
@@ -150,7 +154,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Google-chrome"] $ws2
+#assign [class="Google-chrome"] $ws2
 
 assign [title="pdfpc - presenter*"] $ws8
 assign [title="pdfpc - presentation*"] $ws9
@@ -207,8 +211,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 
 exec setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle
 exec --no-startup-id nm-applet
-#exec --no-startup-id blueman-applet
-#exec --no-startup-id nextcloud
+exec --no-startup-id blueman-applet
+#
 # volume control
 exec pasystray
 # Gnome settings
@@ -217,11 +221,15 @@ exec gnome-settings-daemon
 # nextcloud
 exec nextcloud
 
+# Protonmail-Bridge
+exec /usr/bin/Desktop-Bridge --no-window
+
 # insync
 #exec insync start
 
 # switch between monitors
 bindsym $mod+p exec --no-startup-id $config/display.sh
+bindsym $mod+Shift+p exec --no-startup-id $config/display_ch.sh
 bindsym $mod+Shift+s exec $config/single-display.sh
 bindsym $mod+Shift+m exec $config/multi-display.sh
 
@@ -230,8 +238,8 @@ bindsym $mod+m exec --no-startup-id $config/mouse.sh
 bindsym $mod+w exec "setxkbmap -model pc105 -layout us,il -option grp:alt_shift_toggle"
 
 # execute dy default
-exec i3-sensible-terminal
-exec google-chrome
+#exec gnome-terminal
+#exec google-chrome
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -253,7 +261,7 @@ bindsym Mod1+Shift+Tab workspace prev
 bar {
         position top
         tray_output primary
-        font Ubnutu Mono Bold 12
+        font Ubnutu Mono Bold 20
         colors {
             urgent_workspace   #2f343a #900000 #ffffff
         }
@@ -267,20 +275,23 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 bindsym $mod+x move workspace to output right
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $config/i3exit lock, mode "default"
-    bindsym e exec --no-startup-id $config/i3exit logout, mode "default"
-    bindsym s exec --no-startup-id $config/i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id $config/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id $config/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Pause mode "$mode_system"
+# This is obsolete, now in dmenu
+#set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+#mode "$mode_system" {
+#    bindsym l exec --no-startup-id $config/i3exit lock, mode "default"
+#    bindsym e exec --no-startup-id $config/i3exit logout, mode "default"
+#    bindsym s exec --no-startup-id $config/i3exit suspend, mode "default"
+#    bindsym h exec --no-startup-id $config/i3exit hibernate, mode "default"
+#    bindsym r exec --no-startup-id $config/i3exit reboot, mode "default"
+#    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+#
+#    # back to normal: Enter or Escape
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+Pause mode "$mode_system"
+#
+bindsym $mod+Pause exec --no-startup-id $config/exit_ch.sh
 
 
 # Scratchpad
@@ -307,3 +318,7 @@ bindsym $mod+Print exec gnome-screenshot -i
 #bindsym Print exec scrot $HOME/Pictures/ScreenShots/`date +%Y-%m-%d_%H:%M:%S`.png
 #bindsym Mod1+Print exec scrot -u $HOME/Pictures/ScreenShots/`date +%Y-%m-%d_%H:%M:%S`.png
 #bindsym Shift+Print exec scrot -s $HOME/Pictures/ScreenShots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Kill and start firefox
+bindsym $mod+Shift+f exec $config/browser.sh
+bindsym $mod+Shift+t exec $config/mail.sh
