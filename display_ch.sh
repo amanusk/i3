@@ -3,7 +3,7 @@
 
 INTERNAL_OUTPUT="LVDS-1"
 
-choices="laptop\ndual\nexternal\ncolne\ntechnion"
+choices="laptop\ndual\nexternal\nclone"
 
 chosen=$(echo -e $choices | dmenu -i)
 
@@ -36,11 +36,10 @@ fi
 
 
 case "$chosen" in
-    external) xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto --primary ;;
-    laptop) xrandr --output $INTERNAL_OUTPUT --auto --primary --output $EXTERNAL_OUTPUT --off ;;
-    clone) xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT ;;
-    dual) xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --right-of $INTERNAL_OUTPUT --primary ;;
-    technion) xrandr --output LVDS-1 --off --output HDMI-3 --auto --primary && sleep 1 && xrandr --output HDMI-2 --auto --right-of HDMI-3 ;;
+    external) xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto --primary && ~/.fehbg;;
+    laptop) xrandr --output $INTERNAL_OUTPUT --auto --primary --output $EXTERNAL_OUTPUT --off && ~/.fehbg;;
+    clone) xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT && ~/.fehbg;;
+    dual) xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --right-of $INTERNAL_OUTPUT --primary && ~/.fehbg;;
 
 esac
 

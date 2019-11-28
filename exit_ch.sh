@@ -6,16 +6,16 @@ chosen=$(echo  $choices | dmenu -i)
 
 case "$chosen" in
     lock)
-        i3lock -c 101010
+        i3lock -i /home/amanusk/Pictures/Wallpapers/T430s_classic_blur.png -c 000000
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-        i3lock -c 101010 && systemctl suspend
+        i3lock -i /home/amanusk/Pictures/Wallpapers/T430s_classic_blur.png -c 000000 && systemctl suspend
         ;;
     hibernate)
-        i3lock -c 101010 && systemctl hibernate
+        i3lock -i /home/amanusk/Pictures/Wallpapers/T430s_classic_blur.png -c 000000 && systemctl hibernate
         ;;
     reboot)
         systemctl reboot
