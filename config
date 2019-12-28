@@ -40,8 +40,9 @@ floating_modifier $mod
 # bindsym $mod+Shift+n exec konsole
 bindsym $mod+Return exec konsole
 bindsym $mod+Shift+d exec konsole --profile=monokai
-bindsym $mod+Shift+w exec /home/amanusk/.local/bin/alacritty
-bindsym $mod+Shift+b exec "/home/amanusk/.local/bin/alacritty --config-file /home/amanusk/.config/alacritty/alacritty-dark.yml"
+# bindsym $mod+Shift+w exec /home/amanusk/.local/bin/alacritty
+bindsym $mod+Shift+b exec "gnome-terminal --profile=Dark"
+# bindsym $mod+Shift+b exec "/home/amanusk/.local/bin/alacritty --config-file /home/amanusk/.config/alacritty/alacritty-dark.yml"
 bindsym $mod+Shift+Return exec gnome-terminal
 
 # kill focused window
@@ -233,7 +234,7 @@ exec pasystray
 exec gnome-settings-daemon
 
 # nextcloud
-exec nextcloud
+# exec nextcloud
 
 # Protonmail-Bridge
 # exec /usr/bin/protonmail-bridge --no-window
@@ -319,4 +320,3 @@ exec --no-startup-id safeeyes
 
 # Redshift
 exec --no-startup-id redshift
-
